@@ -9,7 +9,7 @@ function showMessage(value) {
 }
 
 function connect() {
-    client = Stomp.client('ws://localhost:8080/chat');
+    client = Stomp.client('https://chat0-app.herokuapp.com/chat');
     client.connect({}, function (frame) {
         client.subscribe("/topic/messages", function (message) {
             showMessage(JSON.parse(message.body).value)
